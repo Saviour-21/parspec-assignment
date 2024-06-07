@@ -1,0 +1,8 @@
+.cardListWrapper{
+    height: 300px;
+    overflow-y: scroll;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

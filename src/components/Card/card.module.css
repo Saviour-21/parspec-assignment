@@ -1,0 +1,28 @@
+.outerWrapper{
+    padding: 10px 20px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-top: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.activeCard{
+    background-color: #f5deb3;
+    border: 2px solid #922C0D;
+}
+
+.hiddenCursor{
+    cursor: none;
+}
+
+.items{
+    display: inline-flex;
+    justify-content: center;
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}

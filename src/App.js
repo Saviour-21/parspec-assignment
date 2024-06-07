@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+
 import './App.css';
 
+import InputBox from './components/InputBox';
+import CardList from './components/CardList';
+
+import { getData } from './apicalls';
+import { MOCKDATA_URL } from './apicalls/ApiConstant';
+
 function App() {
+  const [data, setData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
+  const [query, setQuery] = useState("");
+
+  // fetching the data 
+  const fetchData = () => {
+    getData(MOCKDATA_URL).then((res)=>{
+        setData(res);
+        setFilterData([]);
+    }).catch((err)=>{
+      console.err(err);
+    })
+}
+
+useEffect(()=>{
+    fetchData();
+}, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputBox data={data} setData={setFilterData} setQuery={setQuery}/>
+      <CardList data={filterData} query={query}/>
     </div>
   );
 }
